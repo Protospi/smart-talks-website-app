@@ -11,12 +11,15 @@ import { CampaignsSection } from "@/components/campaigns-section"
 import { IntegrationsSection } from "@/components/integrations-section"
 import { PlansSection } from "@/components/plans-section"
 import { FooterSection } from "@/components/footer-section"
+import { ScrollProgress } from "@/components/scroll-progress"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
       <SiteHeader />
-      <HeroSection />
+      <div id="hero-section">
+        <HeroSection />
+      </div>
       <BigNumbers />
       <FeaturesSection />
       <ServicesSection />
@@ -28,6 +31,7 @@ export default function Home() {
       <IntegrationsSection />
       <PlansSection />
       <FooterSection />
+      <ScrollProgress />
     </div>
   )
 }
