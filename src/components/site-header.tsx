@@ -1,8 +1,17 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Globe } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 export function SiteHeader() {
+  const pathname = usePathname()
+
+  const isActive = (path: string) => {
+    return pathname === path ? "text-blue-600" : "text-gray-600 hover:text-gray-900"
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-20 items-center">
@@ -19,13 +28,13 @@ export function SiteHeader() {
         </div>
         <nav className="flex flex-1 items-center justify-between">
           <div className="flex items-center space-x-8 text-sm">
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Início</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Sobre</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Produtos</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Soluções</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Cases</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Planos</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Contato</Link>
+            <Link href="/" className={`transition-colors ${isActive('/')}`}>Início</Link>
+            <Link href="/sobre" className={`transition-colors ${isActive('/sobre')}`}>Sobre</Link>
+            <Link href="/produtos" className={`transition-colors ${isActive('/produtos')}`}>Produtos</Link>
+            <Link href="/solucoes" className={`transition-colors ${isActive('/solucoes')}`}>Soluções</Link>
+            <Link href="/cases" className={`transition-colors ${isActive('/cases')}`}>Cases</Link>
+            <Link href="/planos" className={`transition-colors ${isActive('/planos')}`}>Planos</Link>
+            <Link href="/contato" className={`transition-colors ${isActive('/contato')}`}>Contato</Link>
           </div>
           <div className="flex items-center space-x-4">
             <button className="inline-flex items-center px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors">
