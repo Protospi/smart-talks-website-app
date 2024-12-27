@@ -106,7 +106,7 @@ export function SiteHeader() {
                         onClick={() => handleLanguageSelect(language)}
                       >
                         <span className={`fi ${language.flag}`} style={{ fontSize: '1.3em' }}></span>
-                        <span className="ml-1">{language.name}</span>
+                        <span className="ml-3">{language.name}</span>
                       </button>
                     ))}
                   </div>
